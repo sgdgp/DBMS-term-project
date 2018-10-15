@@ -1,0 +1,359 @@
+<!doctype html>
+<html>
+<head>
+  <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+<style>
+body {
+  background-color: darkred;
+  margin: 0;
+  padding: 0;
+}
+
+.upper {
+  background-image: url("../static/food.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 12px;
+  text-align: center;
+  color: darkred;
+  padding: 80px;
+  font-family: "Jokerman", serif;
+}
+
+.divider {
+  background-color: darkred;
+  height: 25px;
+}
+
+.boxed {
+    border-radius: 9px 9px 9px 9px;
+    font-family: "Times New Roman", cursive, sans-serif;
+    color: white;
+    border: 1px;
+    font-size:20px; 
+    text-align: right;
+    float: right;
+    right: 20px;
+  }
+
+.boxedelse {
+  background-color: darkred;
+  box-shadow: 1px 1px 11px #330033;
+  border-radius: 15px 15px 15px 15px;
+  overflow: hidden;
+  width: 150px;
+  height: 60px;
+  font-family: "Verdana", cursive, sans-serif;
+  color: white;
+  border: 1px;
+  font-size:20px; 
+  text-align: center;
+  margin: auto;
+}
+
+#mainselection select {
+   border: 0;
+   color: gray;
+   background: transparent;
+   font-size: 15px;
+   font-weight: bold;
+   padding: 5px 5px;
+   position: absolute;
+   top: 0%;
+   left: 0%;
+   width: 360px;
+   height: 50px;
+   *height: 50px;
+   *width: 350px;
+   *background: #58B14C;
+   -webkit-appearance: none;
+}
+
+#mainselection {
+   overflow: hidden;
+   position: relative;
+   margin:auto;
+   width:350px;
+   height: 50px;
+   font-size: 12px;
+   -moz-border-radius: 9px 9px 9px 9px;
+   -webkit-border-radius: 9px 9px 9px 9px;
+   border-radius: 9px 9px 9px 9px;
+   box-shadow: 1px 1px 11px #330033;
+   background: white url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+}
+
+#mainselection2 select {
+   border: 0;
+   color: gray;
+   background: transparent;
+   font-size: 15px;
+   font-weight: bold;
+   padding: 5px 5px;
+   position: absolute;
+   top: 0%;
+   left: 0%;
+   width: 260px;
+   height: 50px;
+   *height: 50px;
+   *width: 250px;
+   *background: #58B14C;
+   -webkit-appearance: none;
+}
+
+
+#mainselection2 {
+   overflow: hidden;
+   position: relative;
+   margin:auto;
+   width:250px;
+   height: 50px;
+   font-size: 12px;
+   -moz-border-radius: 9px 9px 9px 9px;
+   -webkit-border-radius: 9px 9px 9px 9px;
+   border-radius: 9px 9px 9px 9px;
+   box-shadow: 1px 1px 11px #330033;
+   background: white url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 219px center;
+}
+
+
+.boxco {
+  background-color: darkred;
+  width: 80px;
+  font-family: "Times New Roman", cursive, sans-serif;
+  color: black;
+  border: 1px;
+  font-size:14px; 
+  text-align: center;
+  margin: auto;
+  right: 20px;
+}
+
+form {
+    overflow: hidden;
+    position: relative;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:darkred;
+    color: white;
+    height: 50px; 
+    border:0 none;
+    box-shadow: 1px 1px 11px darkred;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+a:link {	
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+    color: bisque;
+}
+
+a:hover {
+    color: cornsilk;
+}
+
+a:active {
+    color: lavenderblush;
+}
+
+table {	
+	/*border-bottom: 1px solid #ddd;*/
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+        border-collapse: collapse;
+}
+
+th {	
+	background-color: wheat;
+	/*border-bottom: 1px solid #ddd;*/
+	color: darkred;
+	font-family: verdana;
+} 
+
+td {
+	background-color: lightyellow;	
+	/*border-bottom: 1px solid #ddd;*/
+} 
+
+</style>
+<title>
+Order
+</title>
+
+<link rel="icon" href="../static/icon.png">
+
+</head>
+
+<body>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+       <div class="alert alert-warning alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        {% for m in message %}
+      {{m}}
+      <br>
+      {% endfor %}
+		  </div>
+      {% endfor %}
+  
+    {% endif %}
+{% endwith %}
+
+<div class="upper">
+   <div class="boxed">
+   <form method = "post">
+
+     <input type = "submit" name="logout" value="Logout as {{ username }}"> &nbsp;
+     
+
+   </div>   <br> <br>
+   &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+   <img src="../static/logo.png" alt="Automato">
+   <p style="text-align: center; font-family:verdana; font-size:25px; color:white;"> Find the best food near you </p>
+   
+   <div id="mainselection" >
+
+     <select name = "dd1">
+    	<option>Select a city</option>
+    	<option value="Kolkata">Kolkata</option>
+    	<option value="Mumbai">Mumbai</option>
+    	<option value="Bangalore">Bangalore</option>
+    	<option value="Hyderabad">Hyderabad</option>
+    </select>
+	
+	</div>
+	<br>
+	<div id="mainselection">
+
+     <select name = "dd2" >
+    	<option>Select a category</option>
+    	<option value="Indian">Indian</option>
+    	<option value="Chinese">Chinese</option>
+    	<option value="Italian">Italian</option>
+    	<option value="Thai">Thai</option>
+	<option value="American">American</option>
+    </select>
+   </div>
+   
+   <br>
+   <div class="boxedelse">
+ 	
+  <input type = "submit" name="search" value="SEARCH" style="width:100px;"> &nbsp;
+  </form>
+   </div> 
+
+</p>
+</div>
+
+<div class = divider>
+</div>
+
+<table style="width:100%; border=none">
+  {% for index,data in restaurant.iteritems() %}
+    <tr>
+      
+      <td width=50%>
+          <p style="font-size:20px; text-align:center"> {{ data[0] }} </p>
+          <p style="text-align: center"> {{ data[1] }} </p>
+          <form method = "post">
+          <input type="submit" name={{index|string}} value="Select restaurant">
+          </form>
+         
+      </td>
+      <td>
+          <img src="{{ data[4] }}" width=100% alt="Some image">
+      </td>
+      </tr>
+    
+  {% endfor %}
+
+
+
+</table>
+
+<div>
+
+<p style="font-size:40px; font-family:Pristina, serif; text-align: center; background-color:darkred; color:white"> Your Orders</p>
+
+<table style="width:80%">
+<tr height = 50px>
+	<th width=15%> Order ID </th>
+    <th width=25%> Restaurant </th>
+    <th width=30%> Address </th>
+    <th width=15%> Status </th>
+    <th width=15%> Actions </th>
+</tr>
+
+{% for index,data in orders.iteritems() %}
+{% set cancel_string = "cancel"+data[0]|string %}
+  <tr>
+    <td> {{ data[0] }}  </td>
+      <td> {{ data[1] }}  </td>
+    <td> {{ data[2] }}  </td>
+    <td> {{ data[3] }}  </td><td>
+
+    {% if (data[3] != 'Delivered') %}
+        <div class="boxco"> 
+        <form method = "post">  
+    <input type="submit" style="height:auto" name = {{ cancel_string }} value = "Cancel" >
+    </form>
+    </div>
+    {% endif %}
+    </td>   
+  </tr>
+{% endfor %}
+</table>
+</table>
+
+<div>
+
+<p style="font-size:40px; font-family:Pristina, serif; text-align: center; background-color:darkred; color:white"> Your Favourites</p>
+
+<table style="width:80%">
+<tr height = 50px>
+  <th width=20%> Item</th>
+    <th width=30%> Restaurant </th>
+    
+</tr>
+<!--
+<tr>
+  <td> bla </td>
+    <td> bla </td>
+  <td> bla </td>
+  <td> bla <br>
+      <div class="boxco"> 
+  <a href="http://www.w3schools.com">Cancel Order</a>
+  </div>
+    </td>   
+</tr>
+-->
+{% for index,data in favourites.iteritems() %}
+  <tr>
+    <td> {{ data[0] }}  </td>
+      <td> {{ data[1] }}  </td>
+   
+        <div class="boxco"> 
+    </div>
+    </td>   
+  </tr>
+{% endfor %}
+</table>
+<br> <br>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+</body>
+</html>

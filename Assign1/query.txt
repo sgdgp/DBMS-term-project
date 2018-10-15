@@ -1,0 +1,32 @@
+i. List all the Courses taught by the teacher - “PPC”
+
+SELECT C_name 
+FROM Teaches,Course,Teacher 
+WHERE Course.C_ID=Teaches.C_ID AND Teaches.T_ID=Teacher.T_ID AND T_name='PPC';
+
+
+ii. List all students registered in the courses taught by “PPC”.
+
+SELECT Student.Roll_number,Student.Name,Student.Hall,Student.Department 
+FROM Student,Attends,Teaches,Teacher 
+WHERE Student.Roll_number=Attends.Roll_number AND Attends.C_ID = Teaches.C_ID And Teaches.T_ID = Teacher.T_ID AND T_name='PPC'; 
+
+
+iii. List the timings of all courses in Class-Room “NC142”.
+SELECT Start_time, End_time 
+FROM Timings,Teaches 
+WHERE Timings.Slot_ID=Teaches.Slot_ID AND Teaches.Room_number='NC142';
+
+iv. List the name of the students who received the highest marks in the courses taught by “PPC”
+SELECT DISTINCT Name 
+FROM ( SELECT Student.Name FROM Student,Gradecard,  (SELECT max(Marks) as maxm,Gradecard.C_ID FROM Student,Gradecard,Attends,Teaches,Teacher WHERE Attends.Roll_number=Student.Roll_number AND Attends.C_ID=Gradecard.C_ID AND Student.Roll_number=Gradecard.Roll_number AND Attends.C_ID=Teaches.C_ID AND Teaches.T_ID=Teacher.T_ID AND T_name = 'PPC' GROUP BY Gradecard.C_ID) AS T WHERE T.maxm=Gradecard.Marks AND T.C_ID=Gradecard.C_ID AND Student.Roll_number=Gradecard.Roll_number) AS Z;
+
+
+v. List the students who have received a grade of “EX” in the largest number of courses.
+
+SELECT DISTINCT Roll_number
+FROM 
+(SELECT Roll_number,count(*) AS Ex_count1 FROM Gradecard WHERE Grade='Ex' GROUP BY Roll_number) AS T,
+(SELECT MAX(Ex_count) AS Max_Ex_count FROM (SELECT Roll_number,count(*) AS Ex_count FROM Gradecard WHERE Grade='Ex' GROUP BY Roll_number) AS Y) AS Z
+WHERE T.Ex_count1=Z.Max_Ex_count;
+

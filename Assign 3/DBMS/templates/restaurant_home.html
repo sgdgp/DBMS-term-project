@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  body {
+    background-color: darkred;
+    margin: 0;
+    padding: 0;
+  }
+
+  .upper {
+    background-image: url("../static/food.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 76px;
+    text-align: center;
+    color: darkred;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 80px;
+    font-family: Jokerman, serif;
+  }
+  
+  .boxed {
+    border-radius: 9px 9px 9px 9px;
+    width: 80px;
+    font-family: "Times New Roman", cursive, sans-serif;
+    color: white;
+    border: 1px;
+    font-size:20px; 
+    text-align: right;
+    
+    
+  }
+
+  .divider {
+    background-color: darkred;
+    height: 25px;
+  }
+	
+  .details {
+    position: absolute;
+    left: 300 px;
+  }
+
+  .boxco {
+    background-color: darkred;
+    width: 80px;
+    font-family: "Times New Roman", cursive, sans-serif;
+    color: black;
+    border: 1px;
+    font-size:14px; 
+    text-align: center;
+    margin: auto;
+    right: 20px;
+  }
+
+  a:link {	
+    color: white;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: bisque;
+  }
+
+  a:hover {
+    color: cornsilk;
+  }
+ 
+  a:active {
+    color: lavenderblush;
+  }
+
+  table {	
+	margin: auto;
+	border-bottom: 1px solid #ddd;
+        text-align: center;
+  }
+
+  th {	
+	background-color: darkred;
+	border-bottom: 1px solid #ddd;
+	color: white;
+	font-family: verdana;
+  } 
+
+  td {
+	background-color: NavajoWhite;	
+	border-bottom: 1px solid #ddd;
+  }
+
+  #mainselection select {
+   border: 0;
+   color: gray;
+   background: transparent;
+   font-size: 15px;
+   font-weight: bold;
+   padding: 5px 5px;
+   position: absolute;
+   top: 0%;
+   left: 0%;
+   width: 360px;
+   height: 50px;
+   *height: 50px;
+   *width: 350px;
+   *background: #58B14C;
+   -webkit-appearance: none;
+  }
+
+  #mainselection {
+   overflow: hidden;
+   margin: auto;
+   position: relative;
+   width:350px;
+   height: 50px;
+   -moz-border-radius: 9px 9px 9px 9px;
+   -webkit-border-radius: 9px 9px 9px 9px;
+   border-radius: 9px 9px 9px 9px;
+   box-shadow: 1px 1px 11px #330033;
+   background: white url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+  }
+    
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    font-size: 28px;
+    font-family:chiller;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 28px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+  }
+
+  .sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    overflow: hidden;
+    height: 100%;
+    //padding: 6px 12px;
+    //border: 1px solid #ccc;
+    border-top: none;
+    background-color: antiquewhite;
+  }
+
+  form {
+    overflow: hidden;
+    background-color: antiquewhite;
+    position: relative;
+    left: 30%;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    border: solid 1px #dcdcdc;
+    transition: box-shadow 0.3s, border 0.3s;
+    -moz-border-radius: 9px 9px 9px 9px;
+    -webkit-border-radius: 9px 9px 9px 9px;
+    border-radius: 9px 9px 9px 9px;    
+  }
+
+  input[type="time"] {
+    padding: 10px;
+    border: solid 1px #dcdcdc;
+    transition: box-shadow 0.3s, border 0.3s;
+    -moz-border-radius: 9px 9px 9px 9px;
+    -webkit-border-radius: 9px 9px 9px 9px;
+    border-radius: 9px 9px 9px 9px;    
+  }
+
+  input[type="time"]:focus,
+  input[type="time"].focus {
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #969696;
+  }
+
+
+  input[type="text"]:focus,
+  input[type="text"].focus {
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #969696;
+  }
+
+  input[type=submit] {
+    padding:5px 15px; 
+    background:darkred;
+    color: white;
+    width: 200px;
+    height: 50px; 
+    border:0 none;
+    box-shadow: 1px 1px 11px darkred;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+  }
+
+  </style>
+
+
+  <title>
+    Restaurant Home
+  </title>
+  
+  <link rel="icon" href="../static/icon.png">
+  
+</head>
+
+<body>
+
+  
+  <div class="upper">
+    <br>
+	<form method="post" style="left:0%; background-color: transparent;">    
+
+	<span style="left:0%;font-size:30px;cursor:pointer;position:absolute;text-align:left;padding-left:0px;padding-right:0px;" onclick="openNav()">&#9776; Options </span>
+
+
+	<span class="boxed" style="float:right; padding-right:100px;">
+ 	<input type = "submit" name="logout" value="Logout" style="width:100px; left:50%"> &nbsp;
+   </span> 
+</form>
+
+ 
+    
+    <img src="../static/logo.png" alt="Automato">
+    <p style="text-align: center; font-family:verdana; font-size:25px; color:white;"> Find the best food near you </p> 
+
+  </div>
+
+
+  <div class = divider>
+  </div>
+
+
+  
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="javascript:void(0)" class="tablinks" onclick="open_tab(event, 'login')">Orders</a>
+    <a href="javascript:void(0)" class="tablinks" onclick="open_tab(event, 'details')">Edit Restaurant Details</a>
+    <a href="javascript:void(0)" class="tablinks" onclick="open_tab(event, 'menu')">Edit Menu</a>
+  </div>
+  
+  <p id="rest_name" style="font-size:45px; font-family:Georgia, serif; text-align: center; color:white"> {{ res_name }} </p>
+  <p style="font-size:25px; font-family:Georgia, serif; text-align: center; color:white"> YOUR ACCOUNT </p> 
+  <p style="font-size:20px; font-family:Georgia, serif; text-align: left; color:white">
+
+  </p>
+
+
+
+  <div id="login" class="tabcontent">
+
+  <p style="font-size:40px; font-family: Viner Hand ITC, serif; text-align: center; color:darkred;"> <br> Pending Orders </p>
+  <table style="width:80%">
+    
+    <tr height = 50px>
+      <th> Order ID </th>
+      <th> Address </th>
+      <th> Status </th>
+      <th> Actions </th>
+    </tr>
+    {% for index,data in order_data.iteritems() %}
+    {% set id1_string = "save_item"+data[0]|string %}
+    {% set id2_string = "cancel_item"+data[0]|string %}
+    {% set name_string = "name"+data[0]|string %} 
+      <tr>
+        <td> {{ data[0] }} </td>
+        <td> {{ data[1] }} </td>
+        <td> {{data[2]}} </td>
+        <td>
+
+          <br>
+	     <form id = "form2" method = "post" style="background-color: NavajoWhite; left: 0%">
+       
+       
+       <select name = "{{ name_string }}">
+            <option value="blank">Select status...</option>
+            <option value="Order Placed">Order Placed</option>
+            <option value="Prepared">Prepared</option>
+            <option value="Delivered">Delivered</option>
+          </select> 
+          &nbsp
+          <input type = "submit" name = {{ id1_string }} value = "Update Status" style="width:110px; height: 25px;">
+	   &nbsp 
+     {% if (data[2]!= 'Delivered') %}
+          <input type = "submit" name = {{ id2_string }} value = "Cancel Order" style="width: 110px; height: 25px;">
+	   {% endif %}
+       </form>
+
+        </td>   
+      </tr>
+    {% endfor %}  
+  </table>
+	<br><br><br><br><br>
+  </div>
+
+
+
+  <div id="details" class="tabcontent">
+
+    <p style="font-size:40px; font-family: Viner Hand ITC, serif; text-align: center; color:darkred;"> <br> Restaurant Details </p>
+
+    <form method="post">
+       <p style="font-size:25px; font-family: Viner Hand ITC, serif; color:darkred;">
+	
+    <table style="width:40%; position:absolute; text-align:left">
+      <th width=40%></th><th></th>
+      <tr><td>
+	Restaurant Name:
+  </td><td>
+       <input style="width:92%" type="text" name="res_name" value="{{ res_name }}">
+   
+       </td></tr><tr><td>
+       Email ID:
+      </td><td>
+       <input style="width:92%"  type="text" name="email" value="{{ email_id }}">
+     
+     </td></tr><tr><td> 
+	
+	Phone No.:
+  </td><td> 
+       <input style="width:92%" type="text" name="phone_no"" value="{{ phone_number }}">
+
+	 </td></tr>
+	
+  <tr><td>
+	Start Timings -
+   </td><td>    <input style="width:92%" type="text" name="start" value="{{ start }}">
+	</td></tr><tr><td>
+	
+	End Timings - 
+  </td><td>     <input style="width:92%"  type="text" name="end" value="{{ end }}">
+
+
+  </td></tr><tr><td>
+  Category:
+  </td><td>     <input style="width:92%"  type="text" width=500px name="category" value="{{ category }}" >
+
+	</td></tr><tr><td>
+  Address:
+   </td><td>    <input style="width:92%"  type="text" width=500px name="address" value="{{ address }}" disabled>
+
+</td></tr>
+   
+     </table>
+     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br><br> 
+     &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+       <input type="submit" name = "save_changes" value="Save Changes">
+	</p>
+    </form>
+
+	<br><br><br><br><br>
+  </div>
+
+  <div id="menu" class="tabcontent">
+
+    <p style="font-size:40px; font-family: Viner Hand ITC, serif; text-align: center; color:darkred;"> <br> Restaurant Menu </p>
+
+    <table style="width:40%">
+    <tr height = 50px>
+      <th width = 50%> Item </th>
+      <th width = 50%> Price </th>
+    </tr>
+    {% for index,data in menu_data.iteritems() %}
+    {% set id_string = "delete_item"+data[2]|string %}
+      <tr>
+        <td> {{ data[0] }} </td>
+        <td> 
+          {{ data[1] }} 
+        <br>
+        <br>	
+          <form method = "post" style="background-color: NavajoWhite; left: 0%">
+          <input type = "submit" name = {{ id_string }} value = "Delete" style="width: 80px; height: 25px;">
+	     </form>
+
+        </td>   
+      </tr>
+    {% endfor %} 
+  </table>    
+
+  <br><br><br><br>
+
+  <p style="font-size:35px; font-family: Viner Hand ITC, serif; text-align: center; color:darkred;"> <br> Add New Item </p>
+
+  <form method="post">
+       <p style="font-size:25px; font-family: Viner Hand ITC, serif; color:darkred;">
+	     <table style="width:40%; position:absolute">
+        <tr>
+      <td>
+       Item Name:
+     </td><td>
+       <input style="width:90%" type="text" name="item_name" value="">
+       </td></tr>
+       <tr><td>
+       Price (in Rs.): 
+     </td><td>
+       <input style="width:90%" type="text" name="price" value="">
+       </td></tr>
+     </table>
+	
+	     <br><br><br><br><br><br>
+       &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+        <input type="submit" name="add_item" value="Add Item">
+	</p>
+    </form>  
+
+	<br><br><br><br><br>
+  </div>
+  
+	<br> <br> <br> <br> <br> <br>
+  </div>
+
+<script>
+
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
+  if('{{active_tab}}' != ""){
+  open_tab(this, '{{active_tab}}');
+}
+else
+  open_tab(this,  "login");
+  function open_tab(evt, tab_name) {
+    document.getElementById("mySidenav").style.width = "0";
+    var i, tabcontent;
+    tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+    document.getElementById(tab_name).style.display = "block";
+    document.getElementById("rest_name").scrollIntoView({behavior: 'smooth'});
+
+  }
+  </script>
+
+</body>
+</html>

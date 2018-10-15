@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  body {
+    background-color: darkred;
+    margin: 0;
+    padding: 0;
+  }
+
+  .upper {
+    background-image: url("../static/food.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 76px;
+    text-align: center;
+    color: darkred;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 80px;
+    font-family: Jokerman, serif;
+  }
+  
+  .boxed {
+    border-radius: 9px 9px 9px 9px;
+    width: 80px;
+    font-family: "Times New Roman", cursive, sans-serif;
+    color: white;
+    border: 1px;
+    font-size:20px; 
+    text-align: right;
+    
+    
+  }
+
+  .divider {
+    background-color: darkred;
+    height: 25px;
+  }
+	
+  .details {
+    position: absolute;
+    left: 300 px;
+  }
+
+  .boxco {
+    background-color: darkred;
+    width: 80px;
+    font-family: "Times New Roman", cursive, sans-serif;
+    color: black;
+    border: 1px;
+    font-size:14px; 
+    text-align: center;
+    margin: auto;
+    right: 20px;
+  }
+
+  a:link {	
+    color: white;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: bisque;
+  }
+
+  a:hover {
+    color: cornsilk;
+  }
+ 
+  a:active {
+    color: lavenderblush;
+  }
+
+  table {	
+	margin: auto;
+	border-bottom: 1px solid #ddd;
+        text-align: center;
+  }
+
+  th {	
+	background-color: darkred;
+	border-bottom: 1px solid #ddd;
+	color: white;
+	font-family: verdana;
+  } 
+
+  td {
+	background-color: NavajoWhite;	
+	border-bottom: 1px solid #ddd;
+  }
+
+  #mainselection select {
+   border: 0;
+   color: gray;
+   background: transparent;
+   font-size: 15px;
+   font-weight: bold;
+   padding: 5px 5px;
+   position: absolute;
+   top: 0%;
+   left: 0%;
+   width: 360px;
+   height: 50px;
+   *height: 50px;
+   *width: 350px;
+   *background: #58B14C;
+   -webkit-appearance: none;
+  }
+
+  #mainselection {
+   overflow: hidden;
+   margin: auto;
+   position: relative;
+   width:350px;
+   height: 50px;
+   -moz-border-radius: 9px 9px 9px 9px;
+   -webkit-border-radius: 9px 9px 9px 9px;
+   border-radius: 9px 9px 9px 9px;
+   box-shadow: 1px 1px 11px #330033;
+   background: white url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+  }
+    
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    font-size: 28px;
+    font-family:chiller;
+  }
+
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 28px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+  }
+
+  .sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+  /* Style the tab content */
+  .tabcontent {
+    height: 100%;
+    //padding: 6px 12px;
+    //border: 1px solid #ccc;
+    border-top: none;
+    background-color: antiquewhite;
+  }
+
+  form {
+    overflow: hidden;
+    background-color: antiquewhite;
+    position: relative;
+    left: 30%;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    border: solid 1px #dcdcdc;
+    transition: box-shadow 0.3s, border 0.3s;
+    -moz-border-radius: 9px 9px 9px 9px;
+    -webkit-border-radius: 9px 9px 9px 9px;
+    border-radius: 9px 9px 9px 9px;    
+  }
+
+  input[type="time"] {
+    padding: 10px;
+    border: solid 1px #dcdcdc;
+    transition: box-shadow 0.3s, border 0.3s;
+    -moz-border-radius: 9px 9px 9px 9px;
+    -webkit-border-radius: 9px 9px 9px 9px;
+    border-radius: 9px 9px 9px 9px;    
+  }
+
+  input[type="time"]:focus,
+  input[type="time"].focus {
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #969696;
+  }
+
+
+  input[type="text"]:focus,
+  input[type="text"].focus {
+    border: solid 1px #707070;
+    box-shadow: 0 0 5px 1px #969696;
+  }
+
+  input[type=submit] {
+    padding:5px 15px; 
+    background:darkred;
+    color: white;
+    width: 200px;
+    height: 50px; 
+    border:0 none;
+    box-shadow: 1px 1px 11px darkred;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+  }
+
+  </style>
+
+
+  <title>
+    System Administration
+  </title>
+  
+  <link rel="icon" href="../static/icon.png">
+  
+</head>
+
+<body>
+
+  
+  <div class="upper">
+    <br>
+	<form method="post" style="left:0%; background-color: transparent;">    
+
+	<span class="boxed" style="float:right; padding-right:100px;">
+ 	<input type = "submit" name="logout" value="Logout" style="width:100px; left:50%"> &nbsp;
+   </span> 
+</form>
+
+ 
+    
+    <img src="../static/logo.png" alt="Automato">
+    <p style="text-align: center; font-family:verdana; font-size:25px; color:white;"> Find the best food near you </p> 
+
+  </div>
+
+
+  <div class = divider>
+  </div>
+
+  <p style="font-size:45px; font-family:Georgia, serif; text-align: center; color:white"> SYSTEM ADMINISTRATION </p>
+
+
+
+  
+
+
+
+  
+
+  <div class = "tabcontent">   
+
+  <br><br>
+
+  <p style="font-size:35px; font-family: Viner Hand ITC, serif; text-align: center; color:darkred;"> <br> Delete Restaurant </p>
+
+  <form method="post">
+       <p style="font-size:25px; font-family: Viner Hand ITC, serif; color:darkred;">
+       <table style="width:40%; position:absolute">
+        <tr>
+        <td>
+         Username: 
+        </td>
+	<td>
+       	<input style="width:90%" type="text" name="username_res" value="">
+       	</td>
+     </table>
+	
+	     <br><br><br><br><br><br>
+       &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+        <input type="submit" name="delete_res" value="Delete Restaurant">
+	</p>
+    </form>
+
+  <br><br><br><br>
+
+  <p style="font-size:35px; font-family: Viner Hand ITC, serif; text-align: center; color:darkred;"> <br> Delete User </p>
+
+  <form method="post">
+       <p style="font-size:25px; font-family: Viner Hand ITC, serif; color:darkred;">
+       <table style="width:40%; position:absolute">
+        <tr>
+        <td>
+         Username: 
+        </td>
+	<td>
+       	<input style="width:90%" type="text" name="username_user" value="">
+       	</td>
+     </table>
+	
+	     <br><br><br><br><br><br>
+       &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+        <input type="submit" name="delete_user" value="Delete User">
+	</p>
+    </form>
+
+	<br><br><br><br><br>
+  </div>
+  
+	<br> <br> <br> <br> <br> <br>
+  </div>
+
+<script>
+
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
+  if('{{active_tab}}' != ""){
+  open_tab(this, '{{active_tab}}');
+}
+else
+  open_tab(this,  "login");
+  function open_tab(evt, tab_name) {
+    document.getElementById("mySidenav").style.width = "0";
+    var i, tabcontent;
+    tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+    document.getElementById(tab_name).style.display = "block";
+    
+  }
+  </script>
+
+</body>
+</html>

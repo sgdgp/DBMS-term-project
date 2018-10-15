@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="../static/icon.png">
+  <style>
+  body {
+    background-color: darkred;
+    margin: 0;
+    padding: 0;
+  }
+
+  .upper {
+    background-image: url("../static/food.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 76px;
+    text-align: center;
+    color: darkred;
+    padding: 80px;
+    font-family: Jokerman, serif;
+  }
+  
+  .boxed {
+    border-radius: 9px 9px 9px 9px;
+    width: 80px;
+    font-family: "Times New Roman", cursive, sans-serif;
+    color: white;
+    border: 1px;
+    font-size:20px; 
+    text-align: right;
+    float: right;
+    right: 20px;
+  }
+
+  input[type=submit] {
+    padding:5px 15px; 
+    background:darkred;
+    color: white;
+    width: 200px;
+    height: 50px; 
+    border:0 none;
+    box-shadow: 1px 1px 11px darkred;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+  }
+
+
+  .pdf 
+  {
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+    padding:10px 0; 
+    background:darkred;
+    color: white;
+    width: 200px;
+    height: 40px; 
+    border:0 none;
+    box-shadow: 1px 1px 11px darkred;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+  }
+
+  .divider {
+    background-color: darkred;
+    height: 25px;
+  }
+	
+  .details {
+    position: absolute;
+    left: 300 px;
+  }
+
+  .boxco {
+    background-color: darkred;
+    width: 80px;
+    font-family: "Times New Roman", cursive, sans-serif;
+    color: black;
+    border: 1px;
+    font-size:14px; 
+    text-align: center;
+    margin: auto;
+    right: 20px;
+  }
+
+  a:link {	
+    color: white;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: bisque;
+  }
+
+  a:hover {
+    color: cornsilk;
+  }
+ 
+  a:active {
+    color: lavenderblush;
+  }
+
+  table {	
+	margin: auto;
+	border-bottom: 1px solid #ddd;
+        text-align: center;
+  }
+
+  th {	
+	background-color: darkred;
+	border-bottom: 1px solid #ddd;
+	color: white;
+	font-family: verdana;
+  } 
+
+  td {
+	background-color: NavajoWhite;	
+	border-bottom: 1px solid #ddd;
+  }
+
+  total {
+	background-color: darkred;
+        color: white;
+	font-family: verdana;
+  }
+
+  
+
+  /* Style the tab content */
+  .tab {
+    overflow: hidden;
+    height: 100%;
+    border-top: none;
+    background-color: antiquewhite;
+  }
+
+  </style>
+
+
+  <title>
+    Bill
+  </title>
+</head>
+
+<body>
+
+  
+  <div class="upper">
+    <div class="boxed">
+    <form method="post">
+ 	<input type = "submit" name="logout" value="Logout" style="width:100px;"> &nbsp;
+  </form>
+   </div>   
+    <br>
+    <img src="../static/logo.png" alt="Automato">
+    <p style="text-align: center; font-family:verdana; font-size:25px; color:white;"> Find the best food near you </p> 
+
+  </div>
+
+  <div class = divider>
+  </div>
+
+  <p style="font-size:45px; font-family:Georgia, serif; text-align: center; color:white"> ORDER </p>
+  <p style="font-size:25px; font-family:Georgia, serif; text-align: center; color:white"> {{ order_id }} </p>
+
+  <div class = tab>
+  <br>
+  <table style="width:80%">
+    
+    <tr height = 50px>
+      <th width=20%> Item ID </th>
+      <th width=40%> Item Name </th>
+      <th width=20%> Quantity </th>
+      <th> Price </th>
+    </tr>
+    {% for index,data in bill.iteritems() %}
+    <tr>
+      <td> {{ data[0] }} </td>
+      <td> {{ data[1] }} </td>
+      <td> {{ data[2] }} </td>
+      <td> {{ data[3] }} </td>   
+    </tr>
+    {% endfor %}
+    <tr height= 50px>
+      <td colspan = "3" style="background-color:darkred; font-family:verdana; color: white"> Total </td>
+      <td> {{ total }} </td>
+    </tr>
+  
+  </table>
+  <br> <br>
+  <form method="post">
+    <div class="pdf">
+
+ 	<input type = "submit" name="generate" value="Print as PDF" style="width:200px;"> &nbsp;
+    </div> 
+  <br><br>
+  </div>
+  </form>
+  <br><br><br>
+</body>
+</html>

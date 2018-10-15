@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="../static/icon.png">
+    
+<style>
+body {
+  background-color: darkred;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+    text-align: center;
+  }
+
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:antiquewhite;
+    font-weight: bold;
+    font-size: 16px;
+    color: darkred;
+    width: 200px;
+    height: 50px; 
+    border: 10px;
+    box-shadow: 1px 1px 11px white;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+  }
+
+  .upper {
+    background-image: url("../static/food.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 76px;
+    text-align: center;
+    color: darkred;
+    padding: 80px;
+    font-family: Jokerman, serif;
+  }
+
+.divider {
+  background-color: darkred;
+  height: 25px;
+}
+
+  .boxed {
+    border-radius: 9px 9px 9px 9px;
+    width: 80px;
+    font-family: "Times New Roman", cursive, sans-serif;
+    color: white;
+    border: 1px;
+    font-size:20px; 
+    text-align: right;
+    float: right;
+    right: 20px;
+  }
+
+.boxedelse {
+  background-color: darkred;
+  box-shadow: 1px 1px 11px #330033;
+  border-radius: 15px 15px 15px 15px;
+  width: 150px;
+  height: 30px;
+  font-family: "Verdana", cursive, sans-serif;
+  color: white;
+  border: 1px;
+  font-size:20px; 
+  text-align: center;
+  margin: auto;
+}
+
+
+#mainselection select {
+   border: 0;
+   color: gray;
+   background: transparent;
+   font-size: 15px;
+   font-weight: bold;
+   padding: 5px 5px;
+   position: absolute;
+   top: 0%;
+   left: 0%;
+   width: 360px;
+   height: 50px;
+   *height: 50px;
+   *width: 350px;
+   *background: #58B14C;
+   -webkit-appearance: none;
+}
+
+#mainselection {
+   overflow: hidden;
+   margin: auto;
+   position: relative;
+   width:350px;
+   height: 50px;
+   -moz-border-radius: 9px 9px 9px 9px;
+   -webkit-border-radius: 9px 9px 9px 9px;
+   border-radius: 9px 9px 9px 9px;
+   box-shadow: 1px 1px 11px #330033;
+   background: white url("http://i62.tinypic.com/15xvbd5.png") no-repeat scroll 319px center;
+}
+
+input[type="number"] {
+    width: 50px;
+    transition: box-shadow 0.3s, border 0.3s;
+  }
+
+.boxco {
+  background-color: darkred;
+  width: 80px;
+  font-family: "Times New Roman", cursive, sans-serif;
+  color: black;
+  border: 1px;
+  font-size:14px; 
+  text-align: center;
+  margin: auto;
+  right: 20px;
+}
+
+a:link {	
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+    color: bisque;
+}
+
+a:hover {
+    color: cornsilk;
+}
+
+a:active {
+    color: lavenderblush;
+}
+
+table {	
+	border-collapse: collapse;
+        text-align: center;
+}
+
+th {	
+	background-color: wheat;
+	color: darkred;
+	font-family: verdana;
+} 
+
+td {
+	background-color: lightyellow;	
+} 
+
+</style>
+<title>
+Menu page
+</title>
+</head>
+
+<body>
+
+<div class="upper">
+   <div class="boxed">
+   <form method = "post">
+ 	{% set username_to_show = username+" " %}
+ 	<input type = "submit" name="logout" value="Logout as {{username}} "> &nbsp;
+   </form>
+   </div>   
+   <br>
+   <img src="../static/logo.png" alt="Automato">
+   <p style="text-align: center; font-family:verdana; font-size:25px; color:white;"> Find the best food near you </p> 
+
+</div>
+
+
+<p style="font-size:40px; font-family:Pristina, serif; text-align: center; background-color:darkred; color:white">{{ res_name }}</p>
+<form method = "post">
+<table style="width:80%; margin: auto;">
+  <tr height = 50px>
+      <th width=10%>Select</th>
+      <th width=10%>Quantity </th>
+      <th width=10%>Item ID</th>
+      <th width=35%>Item Name</th>
+      
+      <th width=15%>Price</th>
+  </tr>
+  
+  {% for index,data in menu_data.iteritems() %} 
+  {% set quan_string = "quan"+index|string %}
+  {% set checkbox_string = "check"+index|string %}
+  {% set id1_string = "id1"+index|string %}
+  {% set id2_string = "id2"+index|string %}
+    <tr>
+      <td>
+        <input type="checkbox" name ={{checkbox_string}} id={{ id1_string }}>
+      </td>
+      <td> 
+        <input type="number" id={{ id2_string }} width=5% name={{ quan_string }} min="1" value="1" disabled>
+      </td>
+      <td> {{ data[0] }} </td>
+
+      <td>{{ data[1] }} </td>
+      
+      <td>{{ data[2] }} </td>
+    </tr>
+  {% endfor %}
+ 
+  <!--<tr>
+    <td>
+      <input type="checkbox" id="yourbox">
+    </td>
+    <td> <input type="number" id="yournum" name="quantity" min="1" value="1" disabled>
+    </td>
+    <td> bla </td>
+
+    <td> bla  </td>
+    <td> bla </td>
+    <td> bla </td>
+  </tr>-->
+</table>
+ <!--</form>-->
+<br>
+<!--<form action="action_page.php" method = "post">-->
+<input type="submit" name="place_order" value = "Place Order">
+</form> 
+<br><br>
+
+<script>
+    
+    var checkboxes = document.getElementsByTagName('input');
+
+    for (var i=0; i<checkboxes.length; i++)  {
+    if (checkboxes[i].type == 'checkbox')   {
+        checkboxes[i].checked = false;
+        }
+    }
+    
+	var i;
+ var inputTags = document.getElementsByTagName('input');
+var checkboxCount = 0;
+for (var i=0, length = inputTags.length; i<length; i++) {
+     if (inputTags[i].type == 'checkbox') {
+         checkboxCount++;
+     }
+}
+ for(var i = 0; i < checkboxCount; i++)
+    {
+	    var temp = i;
+	    getFun(temp);
+        
+    }
+    
+    function getFun(i){
+        document.getElementById("id1" + i).onchange = function() {
+	    document.getElementById("id2" + i).disabled = !this.checked;
+    };
+    }
+</script>
+
+</body>
+</html>
+

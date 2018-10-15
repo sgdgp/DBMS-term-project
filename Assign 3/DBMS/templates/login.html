@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Automato</title>
+<link rel="icon" href="../static/icon.png">
+
+<style>
+body {
+  background-color: darkred;
+  margin: 0;
+  padding: 0;
+  font-family: serif;
+}
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: darkred;
+
+}
+
+/* Float the list items side by side */
+ul.tab li {float:left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: lightyellow;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {
+    background-color: firebrick;
+}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {
+    background-color: firebrick;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: lightyellow;
+}
+
+.upper {
+  background-image: url("../static/food.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 76px;
+  text-align: center;
+  color: darkred;
+  padding: 1px;
+  font-family: "Jokerman", serif;
+}
+ input[type=submit] {
+    padding:5px 15px; 
+    background:darkred;
+    color: white;
+    width: 200px;
+    height: 50px; 
+    border:0 none;
+    box-shadow: 1px 1px 11px darkred;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+  }
+
+</style>
+ </head>
+
+<body>
+
+<div class="upper">
+<br>
+   <img src="../static/logo.png" alt="Automato">
+
+   <p style="text-align: center; font-family:verdana; font-size:25px; color:white;"> Find the best food near you </p>
+</p>
+</div>
+<ul class="tab"> 
+	<li><a href="javascript:void(0)" class="tablinks" id="tab_login" onclick="open_tab(event, 'login')">Login</a></li>
+  <li><a href="javascript:void(0)" class="tablinks"  id="tab_sign_up_user" onclick="open_tab(event, 'sign_up_user')">Sign Up User</a></li>
+  <li><a href="javascript:void(0)" class="tablinks" id="tab_sign_up_restaurant" onclick="open_tab(event, 'sign_up_restaurant')">Sign Up Restaurant</a></li>
+  
+</ul>
+
+<div id="login" class="tabcontent">
+   <h3>Please enter your login details</h3>
+    <form method = "post">
+        <table style= "width:100%">
+        	<tr>
+              <td>Username</td>          
+              <td><input type = "text" name = "username" autofocus /></td>
+            </tr>
+            <tr>
+              <td>Password</td>          
+              <td><input type = "password" name = "password" /></td>
+            </tr>
+  	</table>
+    	<br>
+    	<input type = "radio" name = "login_type" value="user" checked> User
+    	<input type = "radio" name = "login_type" value="restaurant" > Restaurant
+	<input type = "radio" name = "login_type" value="sysadmin" > Administrator
+    	<br><br>
+        <input type = "submit" name="submit_login_user" value = "Login" />
+    </form>
+  	<h4>New user? <a href="javascript:void(0)" onclick="open_tab(event, 	'sign_up_user')">Sign up!</a></h4>
+ 	 <h4>To register your restaurant, <a href="javascript:void(0)" 	onclick="open_tab(event, 'sign_up_restaurant')">click here.</a></h4>
+</div>
+
+<div id="sign_up_user" class="tabcontent">
+    <h3>Please enter your user details</h3>
+    <form method = "post">
+    	<table style= "width:100%">
+              <tr>
+                <td>Username</td>          
+                <td><input type = "text" name = "username" /></td>
+              </tr>
+              <tr>
+              <tr>
+                <td>Name</td>          
+                <td><input type = "text" name = "name" /></td>
+              </tr>
+              <tr>
+                <td>Email ID</td>          
+                <td><input type = "text" name = "email" /></td>
+              </tr>
+              <tr>
+                <td>Password</td>          
+                <td><input type = "password" name = "password" /></td>
+              </tr>
+              <tr>
+                <td>Confirm password</td>          
+                <td><input type = "password" name = "cpassword" /></td>
+              </tr>
+              <tr>
+                <td>Address</td>          
+                <td><input type = "text" name = "address" /></td>
+              </tr>
+              
+    	</table><br>
+        <input type = "submit" name="submit_sign_up_user" value = "Sign Up" />
+	<br><br><br></form>
+    
+</div>
+
+<div id="sign_up_restaurant" class="tabcontent">
+    <h3>Please enter your restaurant details</h3>
+    <form method = "post">
+        <table style= "width:100%">
+        	<tr>
+              <td>Username</td>          
+              <td><input type = "text" name = "username" /></td>
+            </tr>
+            <tr>
+        	<tr>
+              <td>Name</td>          
+              <td><input type = "text" name = "name" /></td>
+            </tr>
+            <tr>
+              <td>Email ID</td>          
+              <td><input type = "text" name = "email" /></td>
+            </tr>
+            <tr>
+              <td>Password</td>          
+              <td><input type = "password" name = "password" /></td>
+            </tr>
+            <tr>
+              <td>Confirm password</td>          
+              <td><input type = "password" name = "cpassword" /></td>
+            </tr>
+            <tr>
+              <td>Phone number</td>          
+              <td><input type = "text" name = "phoneno" /></td>
+            </tr>
+            <tr>
+              <td>Timings (format example: 07:00-15:00)</td>          
+              <td><input type = "text" name = "timings" /></td>
+            </tr>
+            <tr>
+                <td>Category</td>          
+                <td><input type = "text" name = "category" /></td>
+            </tr>
+            <tr>
+              <td>Address</td>          
+              <td><input type = "text" name = "address" /></td>
+            </tr>
+            <tr>
+              <td>City</td>          
+              <td><input type = "text" name = "city" /></td>
+            </tr>
+            <tr>
+              <td>Image link</td>          
+              <td><input type = "text" name = "image_link" /></td>
+            </tr>
+              
+          
+          
+    	</table><br>
+        <input type = "submit" name="submit_sign_up_restaurant" value = "Sign Up" />
+    </form>
+</div>
+
+
+
+<script>
+document.getElementById("tab_login").click();
+
+function open_tab(evt, tab_name) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tab_name).style.display = "block";
+    var activetab = document.getElementById("tab_" + tab_name);
+    activetab.className += " active";
+}
+</script>
+     
+</body>
+</html> 

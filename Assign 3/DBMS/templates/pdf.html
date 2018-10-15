@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="../static/icon.png">
+  
+  <title>
+    Bill
+  </title>
+</head>
+
+<body>
+
+  
+  <div class="upper">
+    <div class="boxed">
+ 	
+   </div>   
+    <br>
+    <p> AUTOMATO </p>
+    <p style="text-align: center; font-family:verdana; font-size:25px; color:white;"> Find the best food near you </p> 
+
+  </div>
+
+  <div class = divider>
+  </div>
+
+  <p style="font-size:45px; font-family:Georgia, serif; text-align: center; color:white"> ORDER </p>
+  <p style="font-size:25px; font-family:Georgia, serif; text-align: center; color:white"> {{ order_id }} </p>
+
+  <div class = tab>
+  <br>
+  <table style="width:80%">
+    
+    <tr height = 50px>
+      <th width=20%> Item ID </th>
+      <th width=40%> Item Name </th>
+      <th width=20%> Quantity </th>
+      <th> Price </th>
+    </tr>
+    {% for index,data in bill.iteritems() %}
+    <tr>
+      <td> {{ data[0] }} </td>
+      <td> {{ data[1] }} </td>
+      <td> {{ data[2] }} </td>
+      <td> {{ data[3] }} </td>   
+    </tr>
+    {% endfor %}
+    <tr height= 50px>
+      <td colspan = "3" style="background-color:darkred; font-family:verdana; color: white"> Total </td>
+      <td> {{ total }} </td>
+    </tr>
+  
+  </table>
+  <br> <br>
+  <br><br>
+  </div>
+  <br><br><br>
+</body>
+</html>

@@ -1,0 +1,11 @@
+List of Tools Used:
+Front end:
+HTML
+CSS
+Jinja 2 template Engine
+Javascript
+
+
+Backend:
+Flask framework in Python
+Python Libraries: pdfkit, pymysql,hashlib,uuid,re
